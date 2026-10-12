@@ -356,7 +356,7 @@ body.calm .bubbles { display: none; }
     </div>
     <ul class="menu-list" role="listbox" aria-label="Menu">
       <li><button class="menu-item" role="option" data-go="persona" data-desc="Browse my projects. Each one is a Persona with its own stats and skills.">Persona<small>Projects</small></button></li>
-      <li><button class="menu-item" role="option" data-go="status" data-desc="Who I am, my social stats, and the skills I've built up.">Status<small>About · Skills</small></button></li>
+      <li><button class="menu-item" role="option" data-go="skills" data-desc="The skills I've built up, my social stats, and a bit about me.">Skills<small>Stack · About</small></button></li>
       <li><button class="menu-item" role="option" data-go="social" data-desc="Spend time together and rank up the link to unlock my contact details.">Social Link<small>Contact</small></button></li>
       <li><button class="menu-item" role="option" data-go="system" data-desc="Links, resume, effects settings and credits.">System<small>Links · Settings</small></button></li>
     </ul>
@@ -382,9 +382,9 @@ body.calm .bubbles { display: none; }
   </section>
 
   <!-- STATUS -->
-  <section class="screen" id="status" aria-label="Status">
+  <section class="screen" id="skills" aria-label="Skills">
     <div class="sub-wrap">
-      <div class="screen-title"><h2>Status</h2><span>About · Skills</span></div>
+      <div class="screen-title"><h2>Skills</h2><span>Stack · About</span></div>
       <div class="status-grid">
         <div class="glass id-card">
           <div class="id-top">
@@ -402,7 +402,7 @@ body.calm .bubbles { display: none; }
         </div>
         <div class="social" id="socialStats"></div>
       </div>
-      <h3 class="section-h">Skills</h3>
+      <h3 class="section-h">Skill Levels</h3>
       <div class="skill-inv" id="skillInv"></div>
       <h3 class="section-h">Traits</h3>
       <div class="traits">
@@ -647,7 +647,7 @@ document.addEventListener("pointerdown", e => {
 /* =========================================================
    Screen navigation with water wipe
    ========================================================= */
-const SUBS = ["persona", "status", "social", "system"];
+const SUBS = ["persona", "skills", "social", "system"];
 let currentScreen = "title", busy = false;
 function show(id, instant = false) {
   if (busy || id === currentScreen) return;
@@ -850,7 +850,7 @@ calm.addEventListener("click", () => setCalm(calm.getAttribute("aria-checked") !
 setCalm(!!ls.get("calm"));
 $("#toTitle").addEventListener("click", () => show("title"));
 
-/* Deep link: #persona, #status, #social, #system */
+/* Deep link: #persona, #skills, #social, #system */
 const start = location.hash.slice(1);
 if (SUBS.includes(start)) show(start, true);
 else $("#title").focus();
